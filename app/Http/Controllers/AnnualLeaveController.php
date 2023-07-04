@@ -14,6 +14,7 @@ class AnnualLeaveController extends Controller
     {
         $this->annualLeaveRepository = $annualLeaveRepository;
         $this->filter = [
+            'id',
             'user_id',
             'start_date',
             'end_date',

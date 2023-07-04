@@ -1,22 +1,16 @@
 <?php
 
-if (!function_exists('generateNoMesin')) {
-    function generateNoMesin(int $length): string
-    {
-        $str = '1234567890ABCDE';
-        return substr(str_shuffle($str), 0, $length);
-    }
-}
-
 if (!function_exists('setFilterInput')) {
     function setFilterInput(array $filter, array $input): array
     {
+        $newData = [];
+
         foreach ($input as $key => $value) {
-            if (! in_array($key, $filter))
-                unset($input[$key]);
+            if (in_array($key, $filter))
+                $newData[$key] = $value;
         }
         
-        return $input;
+        return $newData;
     }
 }
 
